@@ -22,7 +22,7 @@ ofxBulletSphere::~ofxBulletSphere() {
 void ofxBulletSphere::destroy() {
     if(rigidBody != NULL) {
         world->removeRigidBody( rigidBody );
-        delete rigidBody->getMotionState();
+        delete (btDefaultMotionState *)rigidBody->getMotionState();
         delete rigidBody;
         rigidBody = NULL;
     }
